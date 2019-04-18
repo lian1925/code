@@ -1,4 +1,4 @@
-# 1 约定文章模板
+# 文章模板约定
 
 每篇文章由元数据与正文构成，其中正文是文章的主体内容，而元数据用于描述文章的基本属性，包括 5 项数据：
 
@@ -19,7 +19,7 @@ tags: 前端
 author: lian
 ---
 
-# ECMAScript 7 品鲜
+# ECMAScript 7 品鲜
 
 1、添加 Array.prototype.includes 函数  
 功能：判断是否包含某个元素。
@@ -46,7 +46,7 @@ author: lian
 (待续)
 ````
 
-# 2 Markdown 解析
+# Markdown 解析
 
 在本项目中，Markdown 解析是核心功能之一，它负责将用户撰写的 Markdown 文章解析，生成约定格式的 json 数据源，提供给 reactJs 或 vuesJs 渲染展示。
 
@@ -55,7 +55,7 @@ Markdown 解析的工作流程如下：
 2、遍历得到的文件进行 Markdown 解析，生成约定格式的 json 数据源，放置于指定目录下；  
 3、生成概要文件，记录遍历得到的源文件与生成文件信息，命名为 summary.json；
 
-# 3 实践
+# 实践
 
 clone 本项目，执行如下命令，即可生成 Markdown 数据源。
 

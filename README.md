@@ -20,7 +20,7 @@
 
 [4、状态管理 redux Todo]()
 
-[5、 阿里组件 antd Todo]()
+[5、阿里组件 antd Todo]()
 
 [6、ECMAScript 7 & 8](/docs/11-ecmascript.md)
 
