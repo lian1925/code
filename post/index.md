@@ -1,0 +1,7 @@
+---
+siteTitle: "猪年奔跑的前端小伙伴"
+description: "A site that records our tears, laugh and grow."
+copyright: "@猪年奔跑的前端小伙伴"
+link: "http://github.com"
+expire: "2019-2020"
+---

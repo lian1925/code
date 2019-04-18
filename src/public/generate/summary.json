@@ -1,0 +1,47 @@
+{
+  "fileMap": {
+    "src/public/generate/index.json": {
+      "siteTitle": "猪年奔跑的前端小伙伴",
+      "description": "A site that records our tears, laugh and grow.",
+      "copyright": "@猪年奔跑的前端小伙伴",
+      "link": "http://github.com",
+      "expire": "2019-2020",
+      "dir": "src/public/generate",
+      "base": "index.json",
+      "ext": ".json",
+      "sourceBase": "index.md",
+      "sourceExt": ".md"
+    },
+    "src/public/generate/tech/lian/es8.json": {
+      "title": "ECMAScript 8 新特性",
+      "createAt": "2019-04-17T10:07:10.000Z",
+      "updateAt": "2019-04-17T10:07:11.000Z",
+      "tags": "前端",
+      "author": "lian",
+      "preview": "\bECMAScript 8\n\n1、添加 String.padStart 和",
+      "dir": "src/public/generate/tech/lian",
+      "base": "es8.json",
+      "ext": ".json",
+      "sourceBase": "es8.md",
+      "sourceExt": ".md"
+    },
+    "src/public/generate/tech/lian/es7.json": {
+      "title": "ECMAScript 7 品鲜",
+      "createAt": "2019-04-08T10:07:10.000Z",
+      "updateAt": "2019-04-08T10:07:11.000Z",
+      "tags": "前端",
+      "author": "lian",
+      "preview": "\bECMAScript 7 品鲜\n\n1、添加 Array.prototype.includes 函数\n功能：判断是否包含某个元素。\n\n需要注意的是，includes 函数与",
+      "dir": "src/public/generate/tech/lian",
+      "base": "es7.json",
+      "ext": ".json",
+      "sourceBase": "es7.md",
+      "sourceExt": ".md"
+    }
+  },
+  "sourceFileArray": [
+    "post/index.md",
+    "post/tech/lian/es7.md",
+    "post/tech/lian/es8.md"
+  ]
+}

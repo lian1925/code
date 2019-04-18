@@ -1,0 +1,15 @@
+{
+  "title": "ECMAScript 7 品鲜",
+  "createAt": "2019-04-08T10:07:10.000Z",
+  "updateAt": "2019-04-08T10:07:11.000Z",
+  "tags": "前端",
+  "author": "lian",
+  "bodyContent": "# \bECMAScript 7 品鲜\n\n1、添加 Array.prototype.includes 函数\n功能：判断是否包含某个元素。\n\n需要注意的是，includes 函数与 indexOf()函数功能类似，其用法辨析如下：\n\n```js\n// 当元素为NaN时\n  [NaN].includes(NaN) => true\n  [NaN].indexOf(NaN) => -1\n\n// 当元素为 +0 与 -0 时\n  [+0].includes(-0) => true\n  [+0].indexOf(-0) => 0\n```\n\n2、添加取幂运算符号 \\*\\*\n示例：\n\n```js\n2 \\*\\* 3 === Math.pow(2,3) => true, 8\n```\n\n(待续)",
+  "bodyHtml": "<h1>\bECMAScript 7 品鲜</h1>\n<p>1、添加 Array.prototype.includes 函数\n功能：判断是否包含某个元素。</p>\n<p>需要注意的是，includes 函数与 indexOf()函数功能类似，其用法辨析如下：</p>\n<pre><code class=\"hljs\"><span class=\"hljs-comment\">// 当元素为NaN时</span>\n  [<span class=\"hljs-literal\">NaN</span>].includes(<span class=\"hljs-literal\">NaN</span>) =&gt; <span class=\"hljs-literal\">true</span>\n  [<span class=\"hljs-literal\">NaN</span>].indexOf(<span class=\"hljs-literal\">NaN</span>) =&gt; <span class=\"hljs-number\">-1</span>\n\n<span class=\"hljs-comment\">// 当元素为 +0 与 -0 时</span>\n  [+<span class=\"hljs-number\">0</span>].includes(<span class=\"hljs-number\">-0</span>) =&gt; <span class=\"hljs-literal\">true</span>\n  [+<span class=\"hljs-number\">0</span>].indexOf(<span class=\"hljs-number\">-0</span>) =&gt; <span class=\"hljs-number\">0</span></code></pre><p>2、添加取幂运算符号 **\n示例：</p>\n<pre><code class=\"hljs\"><span class=\"hljs-number\">2</span> \\*\\* <span class=\"hljs-number\">3</span> === <span class=\"hljs-built_in\">Math</span>.pow(<span class=\"hljs-number\">2</span>,<span class=\"hljs-number\">3</span>) =&gt; <span class=\"hljs-literal\">true</span>, <span class=\"hljs-number\">8</span></code></pre><p>(待续)</p>\n",
+  "preview": "\bECMAScript 7 品鲜\n\n1、添加 Array.prototype.includes 函数\n功能：判断是否包含某个元素。\n\n需要注意的是，includes 函数与",
+  "dir": "src/public/generate/tech/lian",
+  "base": "es7.json",
+  "ext": ".json",
+  "sourceBase": "es7.md",
+  "sourceExt": ".md"
+}
