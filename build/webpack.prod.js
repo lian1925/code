@@ -9,17 +9,15 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = merge(common, {
   mode: "production",
-  devtool: "source-map",
   plugins: [
     new BundleAnalyzerPlugin(),
     new CleanWebpackPlugin(),
     new UglifyJSPlugin({
       uglifyOptions: {
         compress: {
-          drop_console: true
+          drop_console: false
         }
-      },
-      sourceMap: true
+      }
     })
   ]
 });

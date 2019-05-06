@@ -26,6 +26,8 @@ author: lian
 "es8".padEnd(5,"lian") => "es8li"
 ```
 
+<!-- more -->
+
 2、添加 Object.values 和 Object.entries
 功能：返回指定对象的枚举属性值（属性，值）的数组
 示例：

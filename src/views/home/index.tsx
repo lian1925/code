@@ -4,7 +4,7 @@ import { Radio, Input, Button } from "antd";
 
 import "./index.css";
 
-const data = require("src/public/index.json");
+import data = require("src/public/index.json");
 export interface IHomeProps {}
 
 export default class IHome extends React.Component<IHomeProps, any> {

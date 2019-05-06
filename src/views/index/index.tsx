@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Radio, Input, Button } from "antd";
+import QueueAnim from "rc-queue-anim";
 
 import "./index.css";
 
@@ -11,11 +11,20 @@ import Content from "@/components/content";
 import Footer from "@/components/footer";
 
 import * as service from "@/service/post";
+import * as mdService from "@/service/index";
+
+// console.log("service", mdService.postList({ pageNo: 2, pageSize: 1 }));
+console.log(
+  "detail",
+  mdService.postDetail("./src/public/generate/tech/lian/es7.json")
+);
+
 export interface IHomeProps {}
 
 export default class IHome extends React.Component<IHomeProps, any> {
   state: any = {
-    postList: []
+    postList: [],
+    show: true
   };
   componentDidMount() {
     this.setState({
@@ -23,13 +32,33 @@ export default class IHome extends React.Component<IHomeProps, any> {
     });
   }
   public render() {
+    const postList = mdService.postList({ pageSize: 10, pageNo: 1 });
+    console.log("list", postList);
+
     return (
       <div>
-        <Header title={site.siteTitle} description={site.description} />
+        <QueueAnim
+          type={["top", "bottom"]}
+          ease={["easeOutQuart", "easeInOutQuart"]}
+        >
+          {this.state.show
+            ? [
+                <Header
+                  key="a"
+                  title={site.siteTitle}
+                  description={site.description}
+                />,
 
-        <Content postList={service.filterPost(summary.fileMap)} />
+                <Content key="b" postList={postList} />,
 
-        <Footer copyright={site.copyright} expire={site.expire} />
+                <Footer
+                  key="c"
+                  copyright={site.copyright}
+                  expire={site.expire}
+                />
+              ]
+            : null}
+        </QueueAnim>
       </div>
     );
   }

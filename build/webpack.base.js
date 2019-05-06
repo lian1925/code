@@ -2,8 +2,12 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+var ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+// const { SkeletonPlugin } = require("page-skeleton-webpack-plugin");
 
 module.exports = {
+  // context: path.resolve(__dirname, "../src/"), // to automatically find tsconfig.json
+
   entry: {
     app: "./src/main.tsx"
   },
@@ -25,33 +29,34 @@ module.exports = {
     }
   },
 
-  plugins: [
-    new webpack.HashedModuleIdsPlugin(),
-    new CopyWebpackPlugin([{ from: "src/public", to: "public" }]),
-    new HtmlWebpackPlugin({
-      filename: "index.html",
-      template: "./src/index.html",
-      inject: true
-    })
-  ],
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
+        include: path.resolve(__dirname, "../src"),
         use: [
+          { loader: "cache-loader" },
           {
-            loader: "awesome-typescript-loader",
+            loader: "thread-loader",
+            options: {
+              // there should be 1 cpu for the fork-ts-checker-webpack-plugin
+              workers: require("os").cpus().length,
+              poolTimeout: Infinity // set this to Infinity in watch mode - see https://github.com/webpack-contrib/thread-loader
+            }
+          },
+          {
+            loader: "ts-loader",
             options: {
               transpileOnly: true,
-              experimentalWatchApi: true
+              experimentalWatchApi: true,
+              happyPackMode: true // IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
             }
           }
         ]
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
         use: ["style-loader", "css-loader"]
       },
       {
@@ -72,6 +77,21 @@ module.exports = {
       }
     ]
   },
+
+  plugins: [
+    new webpack.DllReferencePlugin({
+      context: path.join(__dirname, "dll"),
+      manifest: require("./dll/manifest.json") // eslint-disable-line
+    }),
+    // new ForkTsCheckerWebpackPlugin(),
+    new webpack.HashedModuleIdsPlugin(),
+    new CopyWebpackPlugin([{ from: "src/public", to: "public" }]),
+    new HtmlWebpackPlugin({
+      filename: "index.html",
+      template: "./src/index.html",
+      inject: true
+    })
+  ],
   optimization: {
     runtimeChunk: "single",
     splitChunks: {

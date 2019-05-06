@@ -7,11 +7,13 @@ import "src/style/index.less";
 
 // router 相关
 import Index from "src/views/index";
+import Post from "src/views/post";
 
 const App = () => (
   <Router>
     <Switch>
       <Route path="/" exact component={Index} />
+      <Route path="/post" component={Post} />
     </Switch>
   </Router>
 );
