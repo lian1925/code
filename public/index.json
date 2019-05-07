@@ -1,0 +1,13 @@
+{
+  "siteTitle": "猪年奔跑的前端小伙伴",
+  "description": "A site that records our tears, laugh and grow.",
+  "copyright": "@猪年奔跑的前端小伙伴",
+  "link": "http://github.com",
+  "bodyContent": "",
+  "bodyHtml": "",
+  "dir": "generate",
+  "base": "index.json",
+  "ext": ".json",
+  "sourceBase": "index.md",
+  "sourceExt": ".md"
+}
