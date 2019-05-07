@@ -1,12 +1,39 @@
 ---
-title: ECMAScript 8 新特性
-createAt: 2019-4-17 10:07:10
-updateAt: 2019-4-17 10:07:11
-tags: 前端
-author: lian
+title: ECMAScript 2015-2019 概览
+createAt: 2019-05-07 20:55:23
+updateAt: 2019-05-07 20:55:23
+tags:
+category:
+author:
 ---
 
-# ECMAScript 8
+## ECMAScript 2015
+
+1、添加 Array.prototype.includes 函数
+功能：判断是否包含某个元素。
+
+需要注意的是，includes 函数与 indexOf()函数功能类似，其用法辨析如下：
+
+```js
+// 当元素为NaN时
+  [NaN].includes(NaN) => true
+  [NaN].indexOf(NaN) => -1
+
+// 当元素为 +0 与 -0 时
+  [+0].includes(-0) => true
+  [+0].indexOf(-0) => 0
+```
+
+<!-- more -->
+
+2、添加取幂运算符号 \*\*
+示例：
+
+```js
+2 \*\* 3 === Math.pow(2,3) => true, 8
+```
+
+## ECMAScript 2016
 
 1、添加 String.padStart 和 String.padEnd
 功能：填充字符串，以达到指定长度。
@@ -25,8 +52,6 @@ author: lian
 
 "es8".padEnd(5,"lian") => "es8li"
 ```
-
-<!-- more -->
 
 2、添加 Object.values 和 Object.entries
 功能：返回指定对象的枚举属性值（属性，值）的数组
@@ -65,5 +90,3 @@ function helper(strs,...keys){
 
 helper `ES ${version} is` => ES8 is better
 ```
-
-(待续)

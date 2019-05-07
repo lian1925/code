@@ -3,11 +3,9 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 var ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-// const { SkeletonPlugin } = require("page-skeleton-webpack-plugin");
+const { SkeletonPlugin } = require("page-skeleton-webpack-plugin");
 
 module.exports = {
-  // context: path.resolve(__dirname, "../src/"), // to automatically find tsconfig.json
-
   entry: {
     app: "./src/main.tsx"
   },
@@ -37,14 +35,14 @@ module.exports = {
         include: path.resolve(__dirname, "../src"),
         use: [
           { loader: "cache-loader" },
-          // {
-          //   loader: "thread-loader",
-          //   options: {
-          //     // there should be 1 cpu for the fork-ts-checker-webpack-plugin
-          //     workers: require("os").cpus().length - 1,
-          //     poolTimeout: Infinity // set this to Infinity in watch mode - see https://github.com/webpack-contrib/thread-loader
-          //   }
-          // },
+          {
+            loader: "thread-loader",
+            options: {
+              // there should be 1 cpu for the fork-ts-checker-webpack-plugin
+              workers: require("os").cpus().length - 1,
+              poolTimeout: Infinity // set this to Infinity in watch mode - see https://github.com/webpack-contrib/thread-loader
+            }
+          },
           {
             loader: "ts-loader",
             options: {
@@ -78,6 +76,17 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: "file-loader"
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader",
+            options: {
+              minimize: true
+            }
+          }
+        ]
       }
     ]
   },
@@ -85,7 +94,7 @@ module.exports = {
   plugins: [
     new webpack.DllReferencePlugin({
       context: path.join(__dirname, "dll"),
-      manifest: require("./dll/manifest.json") // eslint-disable-line
+      manifest: require("./dll/manifest.json")
     }),
     // new ForkTsCheckerWebpackPlugin(),
     new webpack.HashedModuleIdsPlugin(),

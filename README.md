@@ -1,4 +1,4 @@
-# 导航
+## 导航
 
 ### 整体架构
 
@@ -28,13 +28,13 @@
 
 [7、问题集锦](/docs/13-question.md)
 
-# 1 项目特色
+## 项目特色
 
 1、同时支持`markdown文件`和`数据库`作为数据源  
 2、提供统一的数据层抽象  
 3、支持 ReactJs 和 VueJs 作为前端展示引擎
 
-# 2 适用场景
+## 适用场景
 
 前端团队管理博客与资源
 
@@ -42,32 +42,7 @@
 
 And so on ...
 
-# 3 目录结构
-
-```bash
-|- post 文章
-|- generate 生成数据
-|- dist 生产文件
-|- build 构建文件
-|- src 源代码
-|- config 配置文件
-```
-
-# 4 写文章
-
-在 post 目录中，创建新文件，并以`markdown`语法填写内容，如：`vue_tip.md`
-
-```md
-## vue 要点梳理
-
-1、基本概念
-
-2、路由管理
-
-3、状态管理
-```
-
-# 5 实践
+## 实践
 
 1、下载项目，并安装依赖项
 
@@ -75,7 +50,26 @@ And so on ...
 npm install
 ```
 
-2、编译数据源
+2、执行如下命令，进入开发模式
+
+```bash
+npm run start
+```
+
+3、创建新文章
+
+执行如下命令，将会在 post 目录下生成一篇新文章。
+
+```
+npm run new [title] [dirname]
+```
+
+说明：
+
+title 代表文章标题  
+dirname 代表文章目录，默认为`/post/tech`
+
+4、编译数据源
 
 执行如下命令，将会根据 post 目录下内容，生成数据源文件，并放于 src/public/generate 目录下。
 
@@ -83,13 +77,15 @@ npm install
 npm run generate
 ```
 
-3、执行如下命令，进入开发模式
+5、监听 markdown 文件改动
 
-```bash
-npm run start
+执行如下命令，将自动监听`/post`目录下的 markdown 文件改动，并自动在浏览器刷新效果。
+
+```
+npm run generate:watch
 ```
 
-4、执行如下命令，生成打包后的生产环境代码
+6、执行如下命令，生成打包后的生产环境代码
 
 ```bash
 npm run build

@@ -1,8 +1,21 @@
-# 简介
+---
+title: 构建利器 Webpack
+createAt: 2019-05-07 21:13:48
+updateAt: 2019-05-07 21:13:48
+tags:
+category:
+author:
+---
 
-webpack 是一个 JavaScript 程序的静态模块打包器。其工作原理是：webpack 以递归方式构建一个关系依赖图，囊括 JavaScript 程序需要的各个模块，然后将这些模块打包成一个或多个依赖包(bundle)。
+## 简介
 
-# 配置矩阵
+webpack 是一个 JavaScript 程序的静态模块打包器。
+
+其工作原理是：webpack 以递归方式构建一个关系依赖图，囊括 JavaScript 程序需要的各个模块，然后将这些模块打包成一个或多个依赖包(bundle)。
+
+<!-- more -->
+
+## 配置矩阵
 
 webpack 配置的组成矩阵：入口 entry，输出 output，加载器 loader，插件 plugin。
 
@@ -85,7 +98,7 @@ module.exports = {
 };
 ```
 
-# 加载器
+## 加载器
 
 加载器，允许你在加载文件时对文件进行预处理。
 整体配置如下：
@@ -105,7 +118,7 @@ npm install --save-dev ts-loader
 }
 ```
 
-# 插件
+## 插件
 
 插件是 webpack 的核心功能。其本质是一个 JavaScript 对象，内置一个 apply 方法，通过此方法可访问 webpack 的 compiler 对象。
 
@@ -427,3 +440,5 @@ const config = {
   ]
 }
 ```
+
+(完)

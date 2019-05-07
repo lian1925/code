@@ -1,63 +1,42 @@
 import * as React from "react";
 import QueueAnim from "rc-queue-anim";
 
-import "./index.css";
-
-import site = require("src/public/generate/index.json");
-import summary = require("@/public/generate/summary.json");
-
 import Header from "@/components/header";
 import Content from "@/components/content";
 import Footer from "@/components/footer";
 
-import * as service from "@/service/post";
-import * as mdService from "@/service/index";
+import * as service from "@/service/index";
 
-// console.log("service", mdService.postList({ pageNo: 2, pageSize: 1 }));
-console.log(
-  "detail",
-  mdService.postDetail("./src/public/generate/tech/lian/es7.json")
-);
+import "./index.less";
+
+let temp = service.searchPostList("");
+console.log(temp);
 
 export interface IHomeProps {}
 
 export default class IHome extends React.Component<IHomeProps, any> {
-  state: any = {
-    postList: [],
-    show: true
-  };
-  componentDidMount() {
-    this.setState({
-      postList: service.filterPost(summary.fileMap)
-    });
-  }
   public render() {
-    const postList = mdService.postList({ pageSize: 10, pageNo: 1 });
-    console.log("list", postList);
+    const postList = service.homePostList(10, 1);
+    console.log(postList);
 
+    const siteInfo = service.siteBaseInfo();
     return (
       <div>
         <QueueAnim
           type={["top", "bottom"]}
           ease={["easeOutQuart", "easeInOutQuart"]}
         >
-          {this.state.show
-            ? [
-                <Header
-                  key="a"
-                  title={site.siteTitle}
-                  description={site.description}
-                />,
-
-                <Content key="b" postList={postList} />,
-
-                <Footer
-                  key="c"
-                  copyright={site.copyright}
-                  expire={site.expire}
-                />
-              ]
-            : null}
+          <Header
+            key="a"
+            title={siteInfo.title}
+            description={siteInfo.description}
+          />
+          <Content key="b" postList={postList} />
+          <Footer
+            key="c"
+            copyright={siteInfo.copyright}
+            expire={siteInfo.expire}
+          />
         </QueueAnim>
       </div>
     );

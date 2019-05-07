@@ -1,40 +1,15 @@
-type Iperson = {
-  name: string;
-  age: number;
-};
-interface PostList {
-  title: string;
-  createAt: string;
-  tags?: string;
-  preview?: string;
-}
+// 文章相关
 
-type BaseInfo = {
+// 网站基本信息接口
+interface BaseInfo {
   title: string;
   description: string;
   copyright: string;
   expire: string;
-};
+}
 
-type Page = {
-  pageSize: number;
-  pageNo: number;
-};
-
-type IndexPostList = {
-  total: number;
-  pageSize: number;
-  pageNo: number;
-  postList: {
-    postId: string;
-    title: string;
-    tags: string[] | string;
-    createAt: string;
-    preview: string;
-  }[];
-};
-
-type PostDetail = {
+// 文章详情接口
+interface PostDetail {
   postId: string;
   title: string;
   tags: string | string[];
@@ -42,4 +17,20 @@ type PostDetail = {
   updateAt: string;
   preview: string;
   content: string;
-};
+}
+
+// 文章列表接口
+interface PostList {
+  postId: string;
+  title: string;
+  tags: string[] | string;
+  createAt: string;
+  preview: string;
+  searchFragment?: string;
+}
+
+// 标签列表接口
+interface TagList {
+  title: string;
+  count: number;
+}
