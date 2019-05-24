@@ -3,7 +3,7 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 var ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-const { SkeletonPlugin } = require("page-skeleton-webpack-plugin");
+// const { SkeletonPlugin } = require("page-skeleton-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -14,7 +14,8 @@ module.exports = {
     pathinfo: false,
     filename: "[name].js",
     path: path.resolve(__dirname, "../dist/"),
-    publicPath: "/"
+    // gitpage环境须配置相对路由
+    publicPath: process.env.NODE_ENV === "gitpage" ? "/code/" : "/"
   },
 
   devtool: "source-map",

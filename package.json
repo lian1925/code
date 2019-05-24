@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://github.com/lian1925/code",
   "scripts": {
+    "pre": "NODE_ENV=gitpage npm run build",
+    "deploy": "gh-pages -d dist",
     "dll": "webpack --config build/webpack.vendor.js",
     "start": "webpack-dev-server  --open --config build/webpack.dev.js",
-    "build": "webpack --config build/webpack.prod.js",
+    "build": " webpack --config build/webpack.prod.js",
     "generate": "node build/generate.js",
     "generate:watch": "nodemon build/generate.js",
     "new": "node build/create.js $*",
@@ -37,6 +40,7 @@
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "parsemarkdown": "^1.0.9",
+    "prettier": "1.17.1",
     "redux-devtools": "^3.5.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
@@ -70,5 +74,16 @@
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
     "redux-starter-kit": "^0.4.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
