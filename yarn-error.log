@@ -1,8 +1,8 @@
 Arguments: 
-  /Users/huahua/.nvm/versions/node/v11.14.0/bin/node /usr/local/bin/yarn add --dev lint-staged@>=8 husky@>=1
+  /Users/huahua/.nvm/versions/node/v11.14.0/bin/node /usr/local/bin/yarn add pretty-quick husky --dev
 
 PATH: 
-  /Users/huahua/.npm/_npx/50793/bin:/Users/huahua/Documents/lian/react/code/node_modules/.bin:/Users/huahua/.nvm/versions/node/v11.14.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Users/huahua/.nvm/versions/node/v11.14.0/bin:/Users/huahua/Library/Android/sdk/emulator:/Users/huahua/Library/Android/sdk/tools:/Users/huahua/Library/Android/sdk/tools/bin:/Users/huahua/Library/Android/sdk/platform-tools:/Users/huahua/Library/Android/sdk/emulator:/Users/huahua/Library/Android/sdk/tools:/Users/huahua/Library/Android/sdk/tools/bin:/Users/huahua/Library/Android/sdk/platform-tools
+  /Users/huahua/.nvm/versions/node/v11.14.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Users/huahua/.nvm/versions/node/v11.14.0/bin:/Users/huahua/Library/Android/sdk/emulator:/Users/huahua/Library/Android/sdk/tools:/Users/huahua/Library/Android/sdk/tools/bin:/Users/huahua/Library/Android/sdk/platform-tools:/Users/huahua/Library/Android/sdk/emulator:/Users/huahua/Library/Android/sdk/tools:/Users/huahua/Library/Android/sdk/tools/bin:/Users/huahua/Library/Android/sdk/platform-tools
 
 Yarn version: 
   1.10.1
@@ -42,7 +42,8 @@ npm manifest:
       "generate": "node build/generate.js",
       "generate:watch": "nodemon build/generate.js",
       "new": "node build/create.js $*",
-      "test": "echo \"Error: no test specified\" && exit 1"
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "prettier":"prettier --write"
     },
     "keywords": [
       "react",
