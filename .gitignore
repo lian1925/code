@@ -3,3 +3,4 @@ node_modules
 dist
 deploy
 draft
+src/public/generate/

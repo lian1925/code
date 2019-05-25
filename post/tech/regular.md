@@ -9,8 +9,6 @@ author:
 
 # JavaScript 正则表达字典
 
-<!-- more -->
-
 ### 测试正则表达式
 
 - 使用.test()方法
@@ -20,6 +18,8 @@ let testString = "My test string";
 let testRegex = /string/;
 testRegex.test(testString);
 ```
+
+<!-- more -->
 
 - 测试多项匹配使用 OR 运算符(|)
 
